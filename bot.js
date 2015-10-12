@@ -7,17 +7,15 @@ function respond(){
 	var yesRegex = /\b(yes)\b/i;
 	var seanRegex = /\b(sean)\b/i;
 
-	if(incoming.text){ 
-		if(yesRegex.test(incoming.text)){
-			this.res.writeHead(200);
-			yesMsg();
-			this.res.end();
-		}
-		else if(seanRegex.test(incoming.text)){
-			this.res.writeHead(200);
-			seanMsg();
-			this.res.end();			
-		}
+	if(incoming.text && yesRegex.test(incoming.text)){
+		this.res.writeHead(200);
+		yesMsg();
+		this.res.end();
+	}
+	else if(incoming.text && seanRegex.test(incoming.text)){
+		this.res.writeHead(200);
+		seanMsg();
+		this.res.end();			
 	}
 	else{
 		console.log("NO MATCH:\t[\"" + incoming.text + "\"]");
