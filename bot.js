@@ -60,7 +60,7 @@ function yesMsg(){
 	botReq.end(JSON.stringify(body));
 }
 
-function yesMsg(){
+function seanMsg(){
 	var botRes, botReq;
 	var body;
 	var options;
