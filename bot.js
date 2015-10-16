@@ -7,7 +7,7 @@ function respond(){
 	var yesRegex = /\b(yes)\b/i;
 	var seanRegex = /\b(sean)\b/i;
 	var ripRegex = /\b(rip)\b/i;
-    var andChillRegex = /[^\s]*\s(and|&)\s(chi+ll+)/i;
+    var andChillRegex = /[^\s]*\sand\schi+ll+|[^\s]*\s&\schi+ll+/i;;
 
     console.log("INCOMING:[" + JSON.stringify(incoming) + "]");
 
