@@ -149,6 +149,7 @@ function andChillMsg(msg){
     var body;
     var options;
     
+    console.log("lol + \t" + msg);
     botRes = msg + "llllll!!!!";
     
     options = {
