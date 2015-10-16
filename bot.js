@@ -25,11 +25,11 @@ function respond(){
 		ripMsg();
 		this.res.end();			
 	}
-    else if(incoming.text && andChillRegex.test(incoming.text)){
+    /*else if(incoming.text && andChillRegex.test(incoming.text)){
         this.res.writeHead(200);
         andChillMsg(andChillRegex.exec(incoming.text));
         this.res.end();
-    }
+    }*/
 	else{
 		console.log("NO MATCH:\t[\"" + incoming.text + "\"]");
 		this.res.writeHead(200);
