@@ -7,7 +7,7 @@ function respond(){
 	var yesRegex = /\b(yes)\b/i;
 	var seanRegex = /\b(sean)\b/i;
 	var ripRegex = /\b(rip)\b/i;
-    var andChillRegex = /[^\s]*\s(and|&)\s(chi*ll*)/i;
+    var andChillRegex = /[^\s]*\s(and|&)\s(chi+ll+)/i;
 
 	if(incoming.text && yesRegex.test(incoming.text)){
 		this.res.writeHead(200);
@@ -26,7 +26,7 @@ function respond(){
 	}
     else if(incoming.text && andChillRegex.test(incoming.text)){
         this.res.writeHead(200);
-        andChillMsg(incoming.text);
+        andChillMsg(andChillRegex.exec(incoming.text));
         this.res.end();
     }
 	else{
@@ -149,7 +149,7 @@ function andChillMsg(msg){
     var body;
     var options;
     
-    botRes = andChillRegex.exec(msg) + "llllll!!!!";
+    botRes = msg + "llllll!!!!";
     
     options = {
     hostname: 'api.groupme.com',
