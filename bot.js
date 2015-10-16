@@ -9,6 +9,7 @@ function respond(){
 	var ripRegex = /\b(rip)\b/i;
     var andChillRegex = /[^\s]*\s(and|&)\s(chi+ll+)/i;
 
+    console.log("INCOMING:[" + JSON.stringify(incoming) + "]");
 	if(incoming.text && yesRegex.test(incoming.text)){
 		this.res.writeHead(200);
 		yesMsg();
