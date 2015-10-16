@@ -10,7 +10,15 @@ function respond(){
     var andChillRegex = /[^\s]*\s(and|&)\s(chi+ll+)/i;
 
     console.log("INCOMING:[" + JSON.stringify(incoming) + "]");
-	if(incoming.text && yesRegex.test(incoming.text)){
+
+    if(incoming.sender_type == "bot"){
+        console.log("Bots don't talk to bots:\t[" + incoming.name + "]");
+        this.res.writeHead(200);
+        this.res.end();
+        return;
+    }
+
+    if(incoming.text && yesRegex.test(incoming.text)){
 		this.res.writeHead(200);
 		yesMsg();
 		this.res.end();
@@ -25,11 +33,11 @@ function respond(){
 		ripMsg();
 		this.res.end();			
 	}
-    /*else if(incoming.text && andChillRegex.test(incoming.text)){
+    else if(incoming.text && andChillRegex.test(incoming.text)){
         this.res.writeHead(200);
         andChillMsg(andChillRegex.exec(incoming.text));
         this.res.end();
-    }*/
+    }
 	else{
 		console.log("NO MATCH:\t[\"" + incoming.text + "\"]");
 		this.res.writeHead(200);
